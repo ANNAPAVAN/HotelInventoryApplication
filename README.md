@@ -1,0 +1,2 @@
+# HotelInventoryApplication
+Angular practice
