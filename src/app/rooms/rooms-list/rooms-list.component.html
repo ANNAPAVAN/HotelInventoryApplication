@@ -1,0 +1,33 @@
+<!-- rooms-list.component.html -->
+<!-- <p>rooms-lisit works!</p> -->
+<!-- <h2>{{title}}</h2> -->
+<table class="table"> 
+  <thead>
+    <tr>
+      <th>Room Number</th>
+      <th>Room Type</th>
+      <th>Room Price</th>
+      <th>Room Amenities</th>
+      <th>Checkin Time</th>
+      <th>Rating</th>
+      <th>Select Room</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      [ngClass]="e ? 'even' : 'odd'"
+      *ngFor="let room of rooms | filter: maxPrice; let e = even; let o = odd; let i = index"
+    >
+      <td>{{ room.roomNumber }}</td>
+      <td>{{ room.roomType }}</td>
+      <td>{{ room.price | currency: 'INR' }}</td> 
+      <td>{{ room.amenities }}</td>
+      <td>{{ room.checkinTime | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ room.rating | number: '1.1-2':'en-us' }}</td>
+      <td>
+        <!-- <button class="btn btn-primary" (click)="selectRoom(room)">Select</button> -->
+        <button class="btn btn-primary"  [routerLink]="['/booking',room.roomNumber]">Book Room</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

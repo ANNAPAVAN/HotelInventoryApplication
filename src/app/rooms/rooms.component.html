@@ -1,0 +1,56 @@
+<!--<h1>Welcome to {{hotelName}}</h1> -->  <!-- interpolation -->
+
+<!-- <app-header></app-header> -->
+<!-- <app-header></app-header>
+<app-header></app-header> -->
+
+<!-- {{rooms$ | async | json}} -->
+
+<!-- <div [hidden]="hideRooms">
+    Number Of Rooms : 
+    <div [ngStyle]="{'color':rooms.availableRooms ? 'green':'red'}"
+        [innerText]="numberOfRooms"
+    ></div>  
+</div> -->
+
+<!-- {{roomList | json}}   jsonPipe -->
+
+
+<!-- <div *ngIf="selectedRoom">
+    {{selectedRoom | json}}
+</div> -->
+
+<!-- {{getError$ | async}} -->
+
+<!-- <h1>No of Rooms is {{roomCount$ | async}}</h1> -->
+
+
+<!-- <div>
+    <button class="btn btn-primary" (click)="addRoom()">Add Room</button>
+</div> -->
+
+
+<div>
+    <!-- <label for="min">Minimum Price</label> -->
+    Max Amount  <input type="number" class="form-control" placeholder="Maximum Price" [formControl]="priceFilter">
+</div>
+<!-- {{priceFilter.value}} -->
+
+
+ 
+<div *ngIf="rooms$ | async as rooms">  <!-- *ngIf -->
+    <app-rooms-list [rooms]="rooms" [maxPrice]='priceFilter.value' [title]="'Roomss List'" 
+    (selectedRoom)="selectRoom($event)"></app-rooms-list>
+</div>
+
+
+<!-- <button (click)="toggle()">Toggle</button>
+
+
+<button (click)="editRoom()">Edit Room</button>
+
+<button (click)="deleteRoom()">Delete Room</button>
+
+<h1>{{totalBytes}} loaded</h1> -->
+
+<router-outlet></router-outlet><!-- to get RoomsBookingComponent here through Child/Nested Routing , whereever we keep this their child component loads -->
