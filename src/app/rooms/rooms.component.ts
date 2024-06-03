@@ -60,7 +60,6 @@ export class RoomsComponent implements OnInit ,DoCheck , AfterViewInit, AfterVie
 
   rooms$ = this.roomsService.getRooms$.pipe(
     catchError((err)=>{
-      // console.log(err);
       this.error$.next(err.message);
       return of([]);
     })
@@ -133,7 +132,7 @@ export class RoomsComponent implements OnInit ,DoCheck , AfterViewInit, AfterVie
   }
 
   selectRoom(room: RoomList){
-    // console.log("anna pavan",room);
+    // console.log(room);
     this.selectedRoom = room;
   }
 
